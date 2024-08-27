@@ -22,3 +22,10 @@ spec:
                 name: synergychat-api-configmap
           ports:
             - containerPort: 8080
+          volumeMounts:
+            - name: synergychat-api-volume
+              mountPath: /persist
+      volumes:
+        - name: synergychat-api-volume
+          persistentVolumeClaim:
+            claimName: synergychat-api-pvc
